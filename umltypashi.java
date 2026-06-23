@@ -1,3 +1,4 @@
+import lejos.nxt.*;
 /**
  *
  * Description
@@ -7,19 +8,16 @@
  */
 
 public class umltypashi {
-  
   // start attributes
   private int Score = 0;
-  // end attributes
   
-  public umltypashi() {
-    umltypashi.drawUI();
-    umltypashi.main();
+  //Konstuktor
+  public static void main (String[] args) throws Exception
+  {
+       umltypashi bildi = new umltypashi();
+       umltypashi.run();
   }
-  static void drawUI() {
-    //
-  }
-
+  
   // start methods
   public int getScore() {
     return Score;
@@ -30,9 +28,11 @@ public class umltypashi {
     
   }
 
-  static void main() {
+  static void run() {
     // TODO add your code here
-    
+    boxuml scoreBox = new boxuml(20,20,30,5);
+    scoreBox.drawBox();
+    Button.waitForAnyPress();
   }
   // end methods
 } // end of umltypashi

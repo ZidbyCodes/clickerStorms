@@ -1,18 +1,27 @@
 ﻿[Files]
-File0=umltypashi.java
-File1=boxuml.java
+File0=upgradebox.java
+File1=umltypashi.java
+File2=boxuml.java
 
 [Box:  - boxuml]
-X=546
-Y=134
+X=567
+Y=92
 MinVis=0
 ShowParameter=4
 SortOrder=0
 ShowIcons=1
 
 [Box:  - umltypashi]
-X=225
-Y=202
+X=236
+Y=201
+MinVis=0
+ShowParameter=4
+SortOrder=0
+ShowIcons=1
+
+[Box:  - upgradebox]
+X=892
+Y=186
 MinVis=0
 ShowParameter=4
 SortOrder=0
@@ -30,6 +39,11 @@ ShowConnections=2
 Fontname=Segoe UI
 Fontsize=12
 ShowObjectDiagram=0
+
+[Connections]
+V0=upgradebox#boxuml#Inheritends####0#0#-1###0#0
+V1=upgradebox#boxuml#Inheritends####0#0#-1###0#0
+V2=umltypashi#boxuml#AssociationDirected####0#0#0###0#0
 
 [Interactive]
 I0=

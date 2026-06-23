@@ -8,25 +8,24 @@ import lejos.nxt.*;
  */
 
 public class boxuml{
-  
   // start attributes
-  private int with;
-  private int height;
-  private int xpos;
-  private int ypos;
-  private boolean selected;
-  private String Inhalt;
-  private int x;
-  private int y;
-  private boolean finish;
+  int with;
+  int height;
+  int xpos;
+  int ypos;
+  int xc;
+  int yc;
+  boolean selected;
+  boolean finish;
   // end attributes
   
-  public boxuml(int w, int h, int xpos, int ypos, String Inhalt) {
+  public boxuml(int w, int h, int x, int y) {
+    xpos = x;
+    ypos = y;
     with = w;
     height = h;
-    this.xpos = xpos;
-    this.ypos = ypos;
-    this.Inhalt = Inhalt;
+    this.height = 0;
+    this.finish = false;
     this.selected = false;
   }
 
@@ -50,26 +49,24 @@ public class boxuml{
   public boolean isSelected() {
     return selected;
   }
-
-  public void setInhalt(String InhaltNew) {
-    Inhalt = InhaltNew;
-  }
-
-  public void drawBox(int w, int h, int xpos, int ypos, String Inhalt) {
+  public void drawBox() {
     // TODO add your code here
-    x = xpos;
-    y = ypos;
+    finish = false;
+    xc = xpos;
+    yc = ypos;
     while (finish == false) { 
-      LCD.setPixel(x,y,1);
-      x = x+1;
-        if (x == xpos + w) {
-          while (y < ypos + h) {
-            LCD.setPixel(xpos,y,1);
-            LCD.setPixel(xpos+w,y,1); 
-            y = y+1;
-          } // end of while      
-        } // end of if
-      if (y > ypos + h) {
+      LCD.setPixel(xc,yc,1);
+      xc = xc+1;
+      if (xc > (xpos + with)) {
+          while (!(yc >= (ypos + height))) {
+            xc = xpos;
+            LCD.setPixel(xc,yc,1);
+            LCD.setPixel(xc+with,yc,1); 
+            yc = yc+1;
+        } // end of while      
+      } // end of if
+      
+      if (yc > ypos + height) {
         finish = true;
       } // end of if
     } // end of while
