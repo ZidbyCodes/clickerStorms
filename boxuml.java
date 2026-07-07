@@ -53,7 +53,7 @@ public class boxuml{
         } // end of while      
       } // end of if
       
-      if (yc == height+ ypos && xc == with + xpos) {
+      if (yc == height+ ypos && xc -1 == with + xpos) {
         finish = true;
         //LCD.drawChar('f',2,4); //used for debugging
       } // end of if
@@ -61,7 +61,6 @@ public class boxuml{
     } // end of while
   }
   public void loescheBox() {
-    // TODO add your code here
     finish = false;
     xc = xpos;
     yc = ypos;
@@ -86,10 +85,12 @@ public class boxuml{
     if (id == 1) {
       displayedNumber = (int) bildi.Score;
       countofTimes = 0;
-      while (displayedNumber/10000 >= 1) {
+      while (displayedNumber/1000 >= 1) {
         countofTimes = countofTimes+1;
-        displayedNumber = displayedNumber/1000;
-        LCD.drawChar('a',4,3); 
+        displayedNumber = displayedNumber/100;
+        LCD.drawChar('a',4,3);
+        clearInhalt();
+//        Button.waitForAnyPress();       used for debugging
       } // end of if
       LCD.drawInt(displayedNumber,6,1);
       LCD.drawInt(countofTimes,6,2);
@@ -98,6 +99,11 @@ public class boxuml{
       LCD.drawInt(displayedNumber,6,1);
       LCD.drawChar('f',1,3); 
     } // end of if-else
+  }
+  public void clearInhalt() {
+    if (id == 1) {
+      LCD.clear(6,1,4);
+    }
   }
   public void blinken()
   {
