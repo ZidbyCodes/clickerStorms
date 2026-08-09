@@ -21,6 +21,7 @@ public class boxuml{
   int displayedNumber;
   int countofTimes = 0;
   boolean isSelected;
+  int timer = 0;
   // end attributes
   
   public boxuml(int w, int h, int x, int y, main bildi, int id) {
@@ -52,7 +53,6 @@ public class boxuml{
           yc = yc+1;
         } // end of while      
       } // end of if
-      
       if (yc == height+ ypos && xc -1 == with + xpos) {
         finish = true;
         //LCD.drawChar('f',2,4); //used for debugging
@@ -100,6 +100,7 @@ public class boxuml{
       LCD.drawChar('f',1,3); 
     } // end of if-else
   }
+  //nur benutzt für scorebox
   public void clearInhalt() {
     if (id == 1) {
       LCD.clear(6,1,4);
@@ -107,18 +108,19 @@ public class boxuml{
   }
   public void blinken()
   {
-    loescheBox();
-    try {
-      Thread.sleep(100);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
+    if (timer < 200) {
+      loescheBox();
+      timer ++;
+      LCD.drawChar('l',5,5);
+    }else if (timer >= 200) {
+      drawBox();
+      LCD.drawChar('d',5,5);
     }
-    drawBox();
-    try {
-      Thread.sleep(100);
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-    }
+    timer++;
+    if (timer > 400){
+      timer = 0; 
+     } 
+    LCD.drawInt(timer,5,6); 
   }
 }
   

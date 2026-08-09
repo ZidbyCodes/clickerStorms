@@ -93,6 +93,8 @@ public class main {
         if (selectedId > maxId) {
           selectedId = 1;
         } // end of if
+        scoreBox.drawBox();
+        upgradeBox1.drawBox();
       } // end of if
       if (Button.LEFT.isDown()) {
         selectedId = selectedId -1;
@@ -112,6 +114,8 @@ public class main {
         if (selectedId <1) {
            selectedId = maxId;
         } // end of if
+        scoreBox.drawBox();
+        upgradeBox1.drawBox();
       } // end of if
       LCD.drawInt(selectedId,4,4);
       switch (selectedId) {
