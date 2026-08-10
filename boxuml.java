@@ -122,6 +122,30 @@ public class boxuml{
      } 
     LCD.drawInt(timer,5,6); 
   }
+  public void BoxTouchFunktion();
+  {
+    switch (selectedId) 
+    {
+          case 1:
+            Score = Math.round (Score + 10*upgrade1.UpgradeMultiplier);
+            scoreBox.drawInhalt();
+            //LCD.drawChar('t',1,2); //debugging
+            while(touch.isPressed()){
+              //LCD.drawChar('c',1,2); //debugging
+            }
+            break;
+          case 2:
+            if (Score > Math.pow(upgrade1.UpgradeCost,10)) {
+              upgrade1.increaseUpgradeMultiplier(10);
+            } // end of if
+            scoreBox.drawInhalt();
+            break;
+    }
+  }
+  public void BoxClickFunktion()
+  {
+
+  }
 }
   
 //  public static void main (String[] args) throws Exception
