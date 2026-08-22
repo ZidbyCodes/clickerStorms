@@ -1,3 +1,4 @@
+<img width="1080" height="1856" alt="prettyuseful-parser" src="https://github.com/user-attachments/assets/fb9cce4c-fe1f-48b1-ab0d-6ea7e7fa2057" />
 <img width="1000" height="1000" alt="steamhappysmile" src="https://github.com/user-attachments/assets/52a038c7-19b5-42a0-810b-78c1c6f13d62" />
 <img width="720" height="714" alt="Screenshot_2025-01-06_182302" src="https://github.com/user-attachments/assets/649e4a47-3c59-4b88-9d20-f0b23669c540" />
 # clickerStorms
