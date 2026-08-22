@@ -1,10 +1,12 @@
 import lejos.nxt.*;
 /**
  *
- * Description
+ * School Projec
+ * https://github.com/ZidbyCodes/clickerStorms
+ 
  *
- * @version 1.0 from 15.06.2026
- * @author 
+ * @version 1.1 from 22.08.2026
+ * @zidby
  */
 
 public class main {
@@ -17,22 +19,22 @@ public class main {
   //Konstuktor
   // start methods
   static void main(String[] args) {
-       main bildi = new main();
-       run(bildi);
+    main bildi = new main();
+    run(bildi);
   }
 
   static void run(main bildi) {
     // TODO add your code here
     TouchSensor touch = new TouchSensor(SensorPort.S1);
     //creating scoreBox
-    boxuml scoreBox = new boxuml(30,10,35,5,bildi,1);
+    box scoreBox = new box(30,10,35,5,bildi,1);
     scoreBox.drawBox();
     scoreBox.drawInhalt();
     //creating Upgradebox1 and Upgrade1 respectivly
-    boxuml upgradeBox1 = new boxuml (20,20,5,5,bildi,2);
     upgrade upgrade1 = new upgrade (1,1,1,bildi);
-    upgradeBox1.drawBox();
-    upgradeBox1.drawInhalt();
+    upgradebox upgradebox1 = new upgradebox(10,10,10,10,bildi,2,upgrade1);
+    upgradebox1.drawBox();
+    upgradebox1.drawInhalt();
     //Button.waitForAnyPress();  //used for debugging
     while (Button.ESCAPE.isUp()) {
       //touch pressed 1 point
@@ -94,7 +96,7 @@ public class main {
           selectedId = 1;
         } // end of if
         scoreBox.drawBox();
-        upgradeBox1.drawBox();
+        upgradebox1.drawBox();
       } // end of if
       if (Button.LEFT.isDown()) {
         selectedId = selectedId -1;
@@ -115,7 +117,7 @@ public class main {
            selectedId = maxId;
         } // end of if
         scoreBox.drawBox();
-        upgradeBox1.drawBox();
+        upgradebox1.drawBox();
       } // end of if
       LCD.drawInt(selectedId,4,4);
       switch (selectedId) {
@@ -123,7 +125,7 @@ public class main {
           scoreBox.blinken();
           break;
         case 2:
-          upgradeBox1.blinken();
+          upgradebox1.blinken();
           break;
       }
       //add Select Table      
